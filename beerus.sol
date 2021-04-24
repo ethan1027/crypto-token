@@ -7,7 +7,7 @@ import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
 contract BeerusToken is ERC20Upgradeable, ERC20BurnableUpgradeable, OwnableUpgradeable {
     function initialize() initializer public {
-        __ERC20_init("BeerusToken", "BEE");
+        __ERC20_init("Beerus", "BEE");
      }
 
     function mint(address to, uint256 amount) public onlyOwner {
