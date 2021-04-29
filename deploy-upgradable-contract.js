@@ -1,6 +1,6 @@
 const { upgradeProxy } = require('@openzeppelin/truffle-upgrades');
 
-const Box = artifacts.require('Box');
+const Box = artifacts.require('Beerus');
 const BoxV2 = artifacts.require('BoxV2');
 
 module.exports = async function (deployer) {

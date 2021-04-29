@@ -13,4 +13,6 @@ contract BeerusToken is ERC20Upgradeable, ERC20BurnableUpgradeable, OwnableUpgra
     function mint(address to, uint256 amount) public onlyOwner {
         _mint(to, amount);
     }
+
+    function totalSupply() external view returns (uint256);
 }
