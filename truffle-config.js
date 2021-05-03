@@ -22,7 +22,8 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 // const infuraKey = "fj4jll3k.....";
 //
 const fs = require('fs');
-const mnemonic = fs.readFileSync(".secret").toString().trim();
+const metamaskMnemonic = fs.readFileSync(".secret-metamask").toString().trim();
+const bwalletMnemonic = fs.readFileSync(".secret-bwallet").toString().trim();
 
 module.exports = {
   /**
@@ -44,7 +45,7 @@ module.exports = {
     //
     development: {
      host: "127.0.0.1",     // Localhost (default: none)
-     port: 7545,            // Standard Ethereum port (default: none)
+     port: 8545,            // Standard Ethereum port (default: none)
      network_id: "*",       // Any network (default: none)
     },
     // Another network with more advanced options...
@@ -59,16 +60,38 @@ module.exports = {
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
     ropsten: {
-    provider: () => new HDWalletProvider({
-      mnemonic, 
-      providerOrUrl: 'https://ropsten.infura.io/v3/e7421859353848378f656f2baec8b6c9',
-      chainId: 3
-    }),
-    network_id: 3,       // Ropsten's id
-    gas: 5500000,        // Ropsten has a lower block limit than mainnet
-    confirmations: 2,    // # of confs to wait between deployments. (default: 0)
-    timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-    skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+      provider: () => new HDWalletProvider({
+        mnemonic: metamaskMnemonic, 
+        providerOrUrl: 'https://ropsten.infura.io/v3/e7421859353848378f656f2baec8b6c9',
+        chainId: 3
+      }),
+      network_id: 3,       // Ropsten's id
+      gas: 5500000,        // Ropsten has a lower block limit than mainnet
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+    testnet: {
+      provider: () => new HDWalletProvider({
+        mnemonic: metamaskMnemonic, 
+        providerOrUrl: 'https://data-seed-prebsc-2-s2.binance.org:8545',
+        chainId: 97
+      }),
+      network_id: 97,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
+    bsc: {
+      provider: () => new HDWalletProvider({
+        mnemonic: metamaskMnemonic, 
+        providerOrUrl: 'https://bsc-dataseed1.binance.org',
+        chainId: 3
+      }),
+      network_id: 56,
+      confirmations: 10,
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
     },
     // Useful for private networks
     // private: {
@@ -112,6 +135,7 @@ module.exports = {
     'truffle-plugin-verify'
   ],
   api_keys: {
-    etherscan: 'A5VHJ5TGNDJIRGW5U1NHD9K3B93Y52JQJW'
+    etherscan: 'A5VHJ5TGNDJIRGW5U1NHD9K3B93Y52JQJW',
+    bscscan: 'MI5KAA51ZQC5HIMTUK824ZAWX8EKC8D36P'
   }
 };

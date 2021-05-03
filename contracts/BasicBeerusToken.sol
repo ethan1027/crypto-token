@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract BasicBeerusToken is ERC20, ERC20Burnable, Ownable {
-    constructor() ERC20("MyToken", "MTK") {
-      _mint(msg.sender, 1e9);
+    constructor() ERC20("TestBeerus", "TBEE") {
+      _mint(msg.sender, 1e27);
     }
 }
