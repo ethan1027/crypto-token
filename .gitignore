@@ -1,4 +1,6 @@
 node_modules
 .secret-bwallet
 .secret-metamask
-build
+cache
+artifacts
+.openzeppelin

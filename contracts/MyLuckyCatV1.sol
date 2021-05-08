@@ -5,12 +5,13 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20BurnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
-contract BeerusToken is ERC20Upgradeable, ERC20BurnableUpgradeable, OwnableUpgradeable {
+contract MyLuckyCatV1 is ERC20Upgradeable, ERC20BurnableUpgradeable, OwnableUpgradeable {
     function initialize() initializer public {
-        __ERC20_init("Beerus", "BEE");
+        __ERC20_init("MyLuckyCat", "MLC");
+        _mint(msg.sender, 100e18);
      }
 
-    function mint(address to, uint256 amount) public onlyOwner {
-        _mint(to, amount);
+    function version() public view virtual returns (string memory) {
+        return "v1";
     }
 }

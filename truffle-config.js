@@ -59,23 +59,24 @@ module.exports = {
     // },
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
-    ropsten: {
+    rinkeby: {
       provider: () => new HDWalletProvider({
         mnemonic: metamaskMnemonic, 
-        providerOrUrl: 'https://ropsten.infura.io/v3/e7421859353848378f656f2baec8b6c9',
-        chainId: 3
+        providerOrUrl: 'https://rinkeby.infura.io/v3/e7421859353848378f656f2baec8b6c9',
+        chainId: 4
       }),
-      network_id: 3,       // Ropsten's id
-      gas: 5500000,        // Ropsten has a lower block limit than mainnet
-      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
-      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+      network_id: 4,
+      gas: 5500000,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
     },
     testnet: {
       provider: () => new HDWalletProvider({
-        mnemonic: metamaskMnemonic, 
-        providerOrUrl: 'https://data-seed-prebsc-2-s2.binance.org:8545',
-        chainId: 97
+        mnemonic: {
+          phrase: metamaskMnemonic
+        },
+        providerOrUrl: 'https://data-seed-prebsc-1-s1.binance.org:8545'
       }),
       network_id: 97,
       confirmations: 2,
