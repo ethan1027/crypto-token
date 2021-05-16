@@ -3,4 +3,4 @@ node_modules
 .secret-metamask
 cache
 artifacts
-.openzeppelin
+secrets.json

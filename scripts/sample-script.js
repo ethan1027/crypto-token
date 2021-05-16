@@ -14,7 +14,7 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const BLCT = await hre.ethers.getContractFactory("BasicLuckyCatToken");
+  const BLCT = await hre.ethers.getContractFactory("BasicLuckyCat");
   const greeter = await BLCT.deploy();
 
   await greeter.deployed();
