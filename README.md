@@ -1,1 +1,1 @@
-Q2 2021:
+LuckyCat crypto token contracts with deployment scripts to Ethereum blockchain and Binance Smart Chain
